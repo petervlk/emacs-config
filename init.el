@@ -37,7 +37,8 @@
 
 ;; Make M-x and other mini-buffers sortable, filterable
 (use-package ivy
-  :init
+  :bind (("C-s" . swiper))
+  :config
   (ivy-mode 1)
   (setq ivy-height 15
         ivy-use-virtual-buffers t
