@@ -177,21 +177,29 @@
   (global-aggressive-indent-mode 1)
   (add-to-list 'aggressive-indent-excluded-modes 'cider-repl-mode))
 
-
-
 ;; This will expand a line of code that was written all on one line.
 (use-package prog-fill
   :ensure t)
 
 ;; Themes and UI
+(use-package all-the-icons
+  :if (display-graphic-p))
+
 (use-package doom-themes
   :init
-  (load-theme 'doom-one))
+  (if (daemonp)
+      (add-hook 'after-make-frame-functions
+		(lambda (frame)
+		  (select-frame frame)
+		  (load-theme 'doom-one t)))
+    (load-theme 'doom-one t)))
 
-(use-package unicode-fonts
-   :ensure t
-   :config
-    (unicode-fonts-setup))
+(use-package doom-modeline
+  :ensure t
+  :init (doom-modeline-mode 1))
+
+;; show column number
+(setq column-number-mode t)
 
 ;; Any Customize-based settings should live in custom.el, not here.
 (setq custom-file "~/.emacs.d/emacs-custom.el") ;; Without this emacs will dump generated custom settings in this file. No bueno.
