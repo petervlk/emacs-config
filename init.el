@@ -217,4 +217,6 @@
 ;; Fullscreen by default, as early as possible. This tiny window is not enough
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
+(setq visible-bell t)
+
 ;;; init.el ends here
