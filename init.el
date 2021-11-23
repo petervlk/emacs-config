@@ -47,11 +47,18 @@
         ivy-use-virtual-buffers t
         ivy-use-selectable-prompt t))
 
-(use-package counsel
-  :after ivy
+(use-package ivy-rich
   :init
-  (counsel-mode 1)
-  :bind (:map ivy-minibuffer-map))
+  (ivy-rich-mode 1))
+
+(use-package counsel
+  :bind (("M-x" . counsel-M-x)
+	 ("C-x b" . counsel-ibuffer)
+	 ("C-x C-f" . counsel-find-file)
+	 :map ivy-minibuffer-map
+	 ("C-r" . 'counsel-minibuffer-history))
+  :config
+  (setq ivy-initial-inputs-alist nil)) ;;Don't start searches wit
 
 ;; We need something to manage the various projects we work on
 ;; and for common functionality like project-wide searching, fuzzy file finding etc.
