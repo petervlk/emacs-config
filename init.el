@@ -37,26 +37,37 @@
   :config
   (exec-path-from-shell-initialize))
 
-;; Make M-x and other mini-buffers sortable, filterable
 (use-package ivy
-  :bind (("C-s" . swiper))
+  :diminish
+  :bind (("C-s" . swiper)
+         :map ivy-minibuffer-map
+         ("TAB" . ivy-alt-done)
+         ("C-l" . ivy-alt-done)
+         ("C-j" . ivy-next-line)
+         ("C-k" . ivy-previous-line)
+         :map ivy-switch-buffer-map
+         ("C-k" . ivy-previous-line)
+         ("C-l" . ivy-done)
+         ("C-d" . ivy-switch-buffer-kill)
+         :map ivy-reverse-i-search-map
+         ("C-k" . ivy-previous-line)
+         ("C-d" . ivy-reverse-i-search-kill))
   :config
-  (ivy-mode 1)
-  (setq ivy-height 15
-        ivy-use-virtual-buffers t
-        ivy-use-selectable-prompt t))
+  (ivy-mode 1))
 
 (use-package ivy-rich
+  :after ivy
   :init
   (ivy-rich-mode 1))
 
 (use-package counsel
-  :bind (("M-x" . counsel-M-x)
-	 ("C-x b" . counsel-ibuffer)
-	 ("C-x C-f" . counsel-find-file)
-	 :map ivy-minibuffer-map
-	 ("C-r" . 'counsel-minibuffer-history))
+  :bind (("C-M-j" . 'counsel-switch-buffer)
+         :map minibuffer-local-map
+         ("C-r" . 'counsel-minibuffer-history))
+  :custom
+  (counsel-linux-app-format-function #'counsel-linux-app-format-function-name-only)
   :config
+  (counsel-mode 1)
   (setq ivy-initial-inputs-alist nil)) ;;Don't start searches wit
 
 ;; We need something to manage the various projects we work on
