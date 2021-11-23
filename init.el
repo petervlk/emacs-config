@@ -22,13 +22,13 @@
   (package-install 'use-package))
 
 (require 'use-package)
+(setq use-package-always-ensure t)
 
 ;; ESC Cancels All
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
-(setq
- use-package-always-ensure t ;; Makes sure to download new packages if they aren't already downloaded
- use-package-verbose t) ;; Package install logging. Packages break, it's nice to know why.
+(setq use-package-always-ensure t ;; Makes sure to download new packages if they aren't already downloaded
+      use-package-verbose t) ;; Package install logging. Packages break, it's nice to know why.
 
 (use-package which-key :config (which-key-mode t))
 
@@ -97,15 +97,13 @@
 ;; clojure stuff
 (setq package-selected-packages '(clojure-mode
 				  cider
-				  lsp-treemacs
-				  ))
+				  lsp-treemacs))
 
 (when (cl-find-if-not #'package-installed-p package-selected-packages)
   (package-refresh-contents)
   (mapc #'package-install package-selected-packages))
 
 (use-package lsp-mode
-  :ensure t
   :init
   (setq lsp-keymap-prefix "C-c l"
 	gc-cons-threshold (* 100 1024 1024)
@@ -131,15 +129,12 @@
   :commands lsp)
 
 ;; Don't add this until I can find a way to disable it without having to toggle it in every clojure window.
-(use-package lsp-ui
-  :ensure t)
+(use-package lsp-ui)
 
 (use-package lsp-ivy
-  :ensure t
   :commands lsp-ivy-workspace-symbol)
 
 (use-package smartparens
-  :ensure t
   :init
   (smartparens-global-mode)
   (smartparens-global-strict-mode)
@@ -147,7 +142,6 @@
   :config
   (require 'smartparens-config)
   ;;(add-hook 'prog-mode-hook #'smartparens-mode)
-
   :bind (:map smartparens-mode-map
               ("C-<left>"  . sp-backward-sexp)
 	      ("C-<right>" . sp-forward-sexp)
@@ -168,7 +162,6 @@
 
 ;; git
 (use-package magit
-  :ensure t
   :config
   (bind-keys :prefix "C-c g"
              :prefix-map my-magit-map
@@ -176,14 +169,12 @@
 
 ;; Code formatting section
 (use-package aggressive-indent
-  :ensure t
   :config
   (global-aggressive-indent-mode 1)
   (add-to-list 'aggressive-indent-excluded-modes 'cider-repl-mode))
 
 ;; This will expand a line of code that was written all on one line.
-(use-package prog-fill
-  :ensure t)
+(use-package prog-fill)
 
 ;; Themes and UI
 (use-package all-the-icons
@@ -199,7 +190,6 @@
     (load-theme 'doom-one t)))
 
 (use-package doom-modeline
-  :ensure t
   :init (doom-modeline-mode 1))
 
 ;; show column number
