@@ -22,7 +22,6 @@
   (package-install 'use-package))
 
 (require 'use-package)
-(setq use-package-always-ensure t)
 
 ;; ESC Cancels All
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
@@ -207,9 +206,10 @@
 (load custom-file 'noerror)
 
 ;;; get rid of clutter
-(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-(if (fboundp 'tool-bar-mode)   (tool-bar-mode   -1))
-(if (fboundp 'menu-bar-mode)   (menu-bar-mode   -1))
+(scroll-bar-mode -1)        ; Disable visible scrollbar
+(tool-bar-mode -1)          ; Disable the toolbar
+(menu-bar-mode -1)          ; Disable the menu bar
+(set-fringe-mode 10)        ; Give some breathing room
 
 ;; Fullscreen by default, as early as possible. This tiny window is not enough
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
