@@ -23,6 +23,9 @@
 
 (require 'use-package)
 
+;; ESC Cancels All
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+
 (setq
  use-package-always-ensure t ;; Makes sure to download new packages if they aren't already downloaded
  use-package-verbose t) ;; Package install logging. Packages break, it's nice to know why.
