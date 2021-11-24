@@ -204,6 +204,12 @@
   :after projectile
   :config (counsel-projectile-mode))
 
+
+(use-package magit
+  :commands magit-status
+  :custom
+  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
+
 ;; Flycheck is the newer version of flymake and is needed to make lsp-mode not freak out.
 (use-package flycheck
   :config
@@ -276,12 +282,6 @@
               ("M-("       . sp-wrap-with-round)
               ("M-{"       . sp-wrap-with-curly)))
 
-;; git
-(use-package magit
-  :config
-  (bind-keys :prefix "C-c g"
-             :prefix-map my-magit-map
-             ("b" . magit-blame)))
 
 ;; improve emacs help system
 (use-package helpful
