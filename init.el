@@ -119,7 +119,6 @@
   (evil-collection-init))
 
 
-
 (use-package which-key
   :defer 0
   :diminish which-key-mode
@@ -314,10 +313,13 @@
 (use-package prog-fill)
 
 
-
 ;; Any Customize-based settings should live in custom.el, not here.
 (setq custom-file "~/.emacs.d/emacs-custom.el") ;; Without this emacs will dump generated custom settings in this file. No bueno.
 (load custom-file 'noerror)
+
+
+;; Make gc pauses faster by decreasing the threshold.
+(setq gc-cons-threshold (* 2 1000 1000))
 
 
 ;;; init.el ends here
