@@ -171,40 +171,38 @@
   (ivy-prescient-mode 1))
 
 
-;; We need something to manage the various projects we work on
-;; and for common functionality like project-wide searching, fuzzy file finding etc.
+(use-package company
+  :after lsp-mode
+  :hook (lsp-mode . company-mode)
+  :bind (:map company-active-map
+              ("<tab>" . company-complete-selection))
+  (:map lsp-mode-map
+        ("<tab>" . company-indent-or-complete-common))
+  :custom
+  (company-minimum-prefix-length 1)
+  (company-idle-delay 0.0))
+
+
+(use-package company-box
+  :hook (company-mode . company-box-mode))
+
+
 (use-package projectile
-  :init
-  (when (file-directory-p "~/projects")
-    (setq projectile-project-search-path '("~/projects")))
+  :diminish projectile-mode
+  :config (projectile-mode)
+  :custom ((projectile-completion-system 'ivy))
   :bind-keymap
   ("C-c p" . projectile-command-map)
-  :config
-  (projectile-mode) ;; Enable this immediately
-  (setq projectile-enable-caching t ;; Much better performance on large projects
-        projectile-completion-system 'ivy)) ;; Ideally the minibuffer should aways look similar
-
-;; Counsel and projectile should work together.
-(use-package counsel-projectile
   :init
-  (counsel-projectile-mode))
+  ;; NOTE: Set this to the folder where you keep your Git repos!
+  (when (file-directory-p "~/projects")
+    (setq projectile-project-search-path '("~/projects")))
+  (setq projectile-switch-project-action #'projectile-dired))
 
-;; Company is the best Emacs completion system.
-(use-package company
-  :bind (("C-." . company-complete))
-  :custom
-  (company-idle-delay 0) ;; I always want completion, give it to me asap
-  (company-dabbrev-downcase nil "Don't downcase returned candidates.")
-  (company-show-numbers t "Numbers are helpful.")
-  (company-tooltip-limit 10 "The more the merrier.")
-  :config
-  (global-company-mode) ;; We want completion everywhere
 
-  ;; use numbers 0-9 to select company completion candidates
-  (let ((map company-active-map))
-    (mapc (lambda (x) (define-key map (format "%d" x)
-                        `(lambda () (interactive) (company-complete-number ,x))))
-          (number-sequence 0 9))))
+(use-package counsel-projectile
+  :after projectile
+  :config (counsel-projectile-mode))
 
 ;; Flycheck is the newer version of flymake and is needed to make lsp-mode not freak out.
 (use-package flycheck
