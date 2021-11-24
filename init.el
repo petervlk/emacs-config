@@ -29,7 +29,12 @@
 (setq use-package-always-ensure t ;; Makes sure to download new packages if they aren't already downloaded
       use-package-verbose t) ;; Package install logging. Packages break, it's nice to know why.
 
-(use-package which-key :config (which-key-mode t))
+(use-package which-key
+  :defer 0
+  :diminish which-key-mode
+  :config
+  (which-key-mode)
+  (setq which-key-idle-delay 0.3))
 
 ;; Slurp environment variables from the shell.
 ;; a.k.a. The Most Asked Question On r/emacs
