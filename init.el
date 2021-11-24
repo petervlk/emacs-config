@@ -224,13 +224,9 @@
   (add-hook 'prog-mode-hook 'flycheck-mode) ;; always lint my code
   (add-hook 'after-init-hook #'global-flycheck-mode))
 
-;; clojure stuff
-(setq package-selected-packages '(clojure-mode
-				  cider))
+(use-package cider)
 
-(when (cl-find-if-not #'package-installed-p package-selected-packages)
-  (package-refresh-contents)
-  (mapc #'package-install package-selected-packages))
+(use-package clojure-mode)
 
 (use-package lsp-mode
   :init
