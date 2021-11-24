@@ -5,7 +5,7 @@
 
 ;;; Code:
 
-
+;;; Package System and Updates
 ;; Initialize package sources
 (require 'package)
 
@@ -36,6 +36,39 @@
   (auto-package-update-maybe)
   (auto-package-update-at-time "09:00"))
 
+
+;;; UI
+;; get rid of clutter
+(scroll-bar-mode -1)        ; Disable visible scrollbar
+(tool-bar-mode -1)          ; Disable the toolbar
+(menu-bar-mode -1)          ; Disable the menu bar
+(set-fringe-mode 10)        ; Give some breathing room
+
+;; Fullscreen by default, as early as possible. This tiny window is not enough
+(set-frame-parameter (selected-frame) 'fullscreen 'maximized)
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+
+;; show column number
+(setq column-number-mode t)
+
+;; Themes
+(use-package all-the-icons
+  :if (display-graphic-p))
+
+(use-package doom-themes
+  :init
+  (if (daemonp)
+      (add-hook 'after-make-frame-functions
+		(lambda (frame)
+		  (select-frame frame)
+		  (load-theme 'doom-one t)))
+    (load-theme 'doom-one t)))
+
+(use-package doom-modeline
+  :init (doom-modeline-mode 1))
+
+
+(setq visible-bell t)
 
 ;; ESC Cancels All
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
@@ -222,38 +255,11 @@
 ;; This will expand a line of code that was written all on one line.
 (use-package prog-fill)
 
-;; Themes and UI
-(use-package all-the-icons
-  :if (display-graphic-p))
 
-(use-package doom-themes
-  :init
-  (if (daemonp)
-      (add-hook 'after-make-frame-functions
-		(lambda (frame)
-		  (select-frame frame)
-		  (load-theme 'doom-one t)))
-    (load-theme 'doom-one t)))
-
-(use-package doom-modeline
-  :init (doom-modeline-mode 1))
-
-;; show column number
-(setq column-number-mode t)
 
 ;; Any Customize-based settings should live in custom.el, not here.
 (setq custom-file "~/.emacs.d/emacs-custom.el") ;; Without this emacs will dump generated custom settings in this file. No bueno.
 (load custom-file 'noerror)
 
-;;; get rid of clutter
-(scroll-bar-mode -1)        ; Disable visible scrollbar
-(tool-bar-mode -1)          ; Disable the toolbar
-(menu-bar-mode -1)          ; Disable the menu bar
-(set-fringe-mode 10)        ; Give some breathing room
-
-;; Fullscreen by default, as early as possible. This tiny window is not enough
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
-
-(setq visible-bell t)
 
 ;;; init.el ends here
