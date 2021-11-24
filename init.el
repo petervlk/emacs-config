@@ -226,8 +226,7 @@
 
 ;; clojure stuff
 (setq package-selected-packages '(clojure-mode
-				  cider
-				  lsp-treemacs))
+				  cider))
 
 (when (cl-find-if-not #'package-installed-p package-selected-packages)
   (package-refresh-contents)
@@ -236,33 +235,39 @@
 (use-package lsp-mode
   :init
   (setq lsp-keymap-prefix "C-c l"
-	gc-cons-threshold (* 100 1024 1024)
         read-process-output-max (* 1024 1024)
-        lsp-lens-enable t
         lsp-eldoc-enable-hover nil
         lsp-signature-auto-activate nil
         ;;lsp-enable-indentation nil ; uncomment to use cider indentation instead of lsp
         ;;lsp-completion-enable nil ; uncomment to use cider completion instead of lsp
-	;;lsp-headerline-breadcrumb-mode nil ;; I don't like the symbols on the header a-la-vscode, remove this if you like them.
 	)
   :hook ((clojure-mode       . lsp)
          (clojurec-mode      . lsp)
          (clojurescript-mode . lsp)
          (lsp-mode           . lsp-enable-which-key-integration))
   :config
+  (lsp-enable-which-key-integration t)
   (dolist (m '(clojure-mode
                clojurec-mode
                clojurescript-mode
                clojurex-mode))
     (add-to-list 'lsp-language-id-configuration `(,m . "clojure")))
-  ;;(setq lsp-clojure-custom-server-command '("bash" "-c" "/usr/bin/clojure-lsp"))
-  :commands lsp)
+  :commands (lsp lsp-deferred))
 
-;; Don't add this until I can find a way to disable it without having to toggle it in every clojure window.
-(use-package lsp-ui)
+
+(use-package lsp-ui
+  :hook (lsp-mode . lsp-ui-mode)
+  :custom
+  (lsp-ui-doc-position 'bottom))
+
+
+(use-package lsp-treemacs
+  :after lsp)
+
 
 (use-package lsp-ivy
-  :commands lsp-ivy-workspace-symbol)
+  :after lsp)
+
 
 (use-package smartparens
   :init
