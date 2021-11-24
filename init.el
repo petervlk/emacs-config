@@ -326,5 +326,33 @@
 ;; Make gc pauses faster by decreasing the threshold.
 (setq gc-cons-threshold (* 2 1000 1000))
 
+;;; restclient
+(use-package restclient
+  :mode (("\\.http\\'" . restclient-mode)))
+
+(use-package json-mode)
+
+(use-package restclient
+  :defer t
+  :mode (("\\.http\\'" . restclient-mode))
+  :bind (:map restclient-mode-map
+	      ("C-c C-f" . json-mode-beautify)))
+
+(defun restclient-get-header-from-response (header)
+  "Get HEADER from the response buffer of restclient.
+HEADER should be just the name of the header, e.g.
+  \"content-type\" (it is case insensitive)."
+  (let* ((case-fold-search t)
+         (search-string (format "// %s: " header))
+         (match (string-match search-string
+                              (buffer-substring-no-properties (point-min)
+                                                              (point-max)))))
+    (goto-char match)
+    (forward-char (length search-string))
+    (buffer-substring-no-properties (point)
+                                    (progn
+                                      (move-end-of-line 1)
+                                      (point)))))
+
 
 ;;; init.el ends here
