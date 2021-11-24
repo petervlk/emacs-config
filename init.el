@@ -37,6 +37,13 @@
   (auto-package-update-at-time "09:00"))
 
 
+;; Slurp environment variables from the shell.
+;; a.k.a. The Most Asked Question On r/emacs
+(use-package exec-path-from-shell
+  :config
+  (exec-path-from-shell-initialize))
+
+
 ;;; UI
 ;; Basic UI
 (scroll-bar-mode -1)        ; Disable visible scrollbar
@@ -112,18 +119,13 @@
   (evil-collection-init))
 
 
+
 (use-package which-key
   :defer 0
   :diminish which-key-mode
   :config
   (which-key-mode)
   (setq which-key-idle-delay 0.3))
-
-;; Slurp environment variables from the shell.
-;; a.k.a. The Most Asked Question On r/emacs
-(use-package exec-path-from-shell
-  :config
-  (exec-path-from-shell-initialize))
 
 (use-package ivy
   :diminish
@@ -156,7 +158,18 @@
   (counsel-linux-app-format-function #'counsel-linux-app-format-function-name-only)
   :config
   (counsel-mode 1)
-  (setq ivy-initial-inputs-alist nil)) ;;Don't start searches wit
+  (setq ivy-initial-inputs-alist nil)) ;;Don't start searches with ^
+
+
+(use-package ivy-prescient
+  :after counsel
+  :custom
+  (ivy-prescient-enable-filtering nil)
+  :config
+  ;; Uncomment the following line to have sorting remembered across sessions!
+					;(prescient-persist-mode 1)
+  (ivy-prescient-mode 1))
+
 
 ;; We need something to manage the various projects we work on
 ;; and for common functionality like project-wide searching, fuzzy file finding etc.
