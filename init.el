@@ -268,13 +268,9 @@
 
 
 (use-package smartparens
+  :diminish smartparens-mode ;; Do not show in modeline
   :init
-  (smartparens-global-mode)
-  (smartparens-global-strict-mode)
-  (show-paren-mode)
-  :config
   (require 'smartparens-config)
-  ;;(add-hook 'prog-mode-hook #'smartparens-mode)
   :bind (:map smartparens-mode-map
               ("C-<left>"  . sp-backward-sexp)
 	      ("C-<right>" . sp-forward-sexp)
@@ -291,7 +287,21 @@
               ("M-)"       . sp-forward-slurp-sexp)
               ("M-\""      . sp-wrap-with-double-quote)
               ("M-("       . sp-wrap-with-round)
-              ("M-{"       . sp-wrap-with-curly)))
+              ("M-{"       . sp-wrap-with-curly))
+  :custom
+  (show-smartparens-global-mode t)
+  :hook
+  ((emacs-lisp-mode       . smartparens-strict-mode)
+   (clojure-mode          . smartparens-strict-mode)
+   (clojurec-mode         . smartparens-strict-mode)
+   (clojurex-mode         . smartparens-strict-mode)
+   (clojurescript-mode    . smartparens-strict-mode)))
+
+
+(use-package evil-smartparens
+  :after (evil smartparens)
+  :diminish
+  :hook (smartparens-strict-mode . evil-smartparens-mode))
 
 
 ;; improve emacs help system
