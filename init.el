@@ -5,6 +5,9 @@
 
 ;;; Code:
 
+;; Set load path
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/lib"))
+
 ;;; Package System and Updates
 ;; Initialize package sources
 (require 'package)
@@ -229,11 +232,14 @@
 (use-package flycheck
   :config
   (add-hook 'prog-mode-hook 'flycheck-mode) ;; always lint my code
-  (add-hook 'after-init-hook #'global-flycheck-mode))
+  (add-hook 'after-init-hook #'global-flycheck-mode)
+  (setq flycheck-emacs-lisp-load-path 'inherit))
+
 
 (use-package cider)
 
 (use-package clojure-mode)
+
 
 (use-package lsp-mode
   :init
