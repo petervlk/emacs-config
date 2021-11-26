@@ -238,6 +238,8 @@
 
 (use-package cider)
 
+(require 'cljstyle-mode)
+
 (use-package clojure-mode)
 
 
