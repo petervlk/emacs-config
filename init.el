@@ -238,6 +238,7 @@
         read-process-output-max (* 1024 1024)
         lsp-eldoc-enable-hover nil
         lsp-signature-auto-activate nil
+	lsp-headerline-breadcrumb-enable nil
         ;;lsp-enable-indentation nil ; uncomment to use cider indentation instead of lsp
         ;;lsp-completion-enable nil ; uncomment to use cider completion instead of lsp
 	)
