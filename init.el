@@ -82,6 +82,10 @@
 ;; ESC Cancels All
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
+;;Search bindings
+(global-set-key [f5] 'projectile-find-file)
+(global-set-key [f6] 'counsel-projectile-rg)
+
 (use-package general
   :after evil
   :config
