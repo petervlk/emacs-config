@@ -5,8 +5,26 @@
 
 ;;; Code:
 
+;;; General settings
 ;; Set load path
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
+
+;; Any Customize-based settings should live in custom.el, not here.
+(setq custom-file (expand-file-name "~/.emacs.d/etc/emacs-custom.el")) ;; Without this emacs will dump generated custom settings in this file. No bueno.
+(load custom-file 'noerror)
+
+;; Make gc pauses faster by decreasing the threshold.
+(setq gc-cons-threshold (* 2 1000 1000))
+
+
+;;; Keybinding conf
+;; ESC Cancels All
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+
+;;Search bindings
+(global-set-key [f5] 'projectile-find-file)
+(global-set-key [f6] 'counsel-projectile-rg)
+
 
 ;;; Package System and Updates
 ;; Initialize package sources
@@ -80,14 +98,6 @@
 (use-package doom-modeline
   :init (doom-modeline-mode 1))
 
-
-;;; Keybinding conf
-;; ESC Cancels All
-(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
-
-;;Search bindings
-(global-set-key [f5] 'projectile-find-file)
-(global-set-key [f6] 'counsel-projectile-rg)
 
 (use-package general
   :after evil
@@ -338,13 +348,6 @@
 ;;   (add-to-list 'aggressive-indent-excluded-modes 'cider-repl-mode))
 
 
-;; Any Customize-based settings should live in custom.el, not here.
-(setq custom-file (expand-file-name "~/.emacs.d/etc/emacs-custom.el")) ;; Without this emacs will dump generated custom settings in this file. No bueno.
-(load custom-file 'noerror)
-
-
-;; Make gc pauses faster by decreasing the threshold.
-(setq gc-cons-threshold (* 2 1000 1000))
 
 (use-package json-mode)
 
