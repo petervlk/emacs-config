@@ -11,4 +11,5 @@ recentf
 /url
 /var
 /workspace
-/.last-package-update-day
+.last-package-update-day
+flycheck_init.el
