@@ -240,7 +240,10 @@
 
 (require 'cljstyle-mode)
 
-(use-package clojure-mode)
+(use-package clojure-mode
+  :config
+  (setq clojure-align-forms-automatically t
+	clojure-indent-style 'align-arguments))
 
 
 (use-package lsp-mode
