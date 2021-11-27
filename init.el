@@ -6,15 +6,15 @@
 ;;; Code:
 
 ;; Set load path
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/lib"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
 
 ;;; Package System and Updates
 ;; Initialize package sources
 (require 'package)
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
-                         ("org" . "https://orgmode.org/elpa/")
-                         ("elpa" . "https://elpa.gnu.org/packages/")))
+                         ("org"   . "https://orgmode.org/elpa/")
+                         ("elpa"  . "https://elpa.gnu.org/packages/")))
 
 (package-initialize)
 (unless package-archive-contents
