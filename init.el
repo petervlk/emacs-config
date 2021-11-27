@@ -339,7 +339,7 @@
 
 
 ;; Any Customize-based settings should live in custom.el, not here.
-(setq custom-file "~/.emacs.d/emacs-custom.el") ;; Without this emacs will dump generated custom settings in this file. No bueno.
+(setq custom-file (expand-file-name "~/.emacs.d/etc/emacs-custom.el")) ;; Without this emacs will dump generated custom settings in this file. No bueno.
 (load custom-file 'noerror)
 
 

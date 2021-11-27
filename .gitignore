@@ -1,5 +1,6 @@
 *~
 /elpa
+/etc
 /.cache
 /auto-save-list
 .lsp-session*
