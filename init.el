@@ -24,6 +24,7 @@
 ;;Search bindings
 (global-set-key [f5] 'projectile-find-file)
 (global-set-key [f6] 'counsel-projectile-rg)
+(global-set-key [f7] 'lsp-ivy-workspace-symbol)
 
 
 ;;; Package System and Updates
