@@ -113,20 +113,22 @@
 (use-package general
   :after evil
   :config
-  (general-create-definer vlko/leader-keys
-			  :keymaps '(normal insert visual emacs)
-			  :prefix "SPC"
-			  :global-prefix "C-SPC")
-
-  (vlko/leader-keys
-   "t"  '(:ignore t :which-key "toggles")
-   "tt" '(counsel-load-theme :which-key "choose theme")
-   )
 
   ;; (general-def 'normal
-  ;;   "/" 'swiper
-  ;;   "gs" 'magit-status)
-  )
+  ;;   "/" 'swiper)
+
+  (general-create-definer vlko-leader-def
+    :prefix "SPC")
+
+  (vlko-leader-def 'normal smartparens-mode-map
+    "s"  '(:ignore s :which-key "smartparens")
+    "ss" '(sp-split-sexp  :which-key "split sexp")
+    "su" '(sp-splice-sexp :which-key "splice sexp")
+    "sr" '(sp-raise-sexp  :which-key "raise sexp")
+    "sc" '(sp-raise-sexp  :which-key "raise sexp")
+    "s(" '(sp-wrap-round  :which-key "wrap sexp round")
+    "s[" '(sp-wrap-square :which-key "wrap sexp square")
+    "s{" '(sp-wrap-curly  :which-key "wrap sexp curly")))
 
 (use-package evil
   :init
