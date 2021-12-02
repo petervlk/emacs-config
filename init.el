@@ -121,7 +121,12 @@
   (vlko/leader-keys
    "t"  '(:ignore t :which-key "toggles")
    "tt" '(counsel-load-theme :which-key "choose theme")
-   "fde" '(lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/Emacs.org")))))
+   )
+
+  ;; (general-def 'normal
+  ;;   "/" 'swiper
+  ;;   "gs" 'magit-status)
+  )
 
 (use-package evil
   :init
