@@ -114,12 +114,21 @@
   :after evil
   :config
 
-  ;; (general-def 'normal
-  ;;   "/" 'swiper)
+  ;; global keys
+  (general-def 'normal
+    "/" 'counsel-grep-or-swiper)
 
+  ;; define leader
   (general-create-definer vlko-leader-def
     :prefix "SPC")
 
+  ;; global with leader prefix
+  (vlko-leader-def 'normal
+    "g"  '(:ignore g :which-key "git")
+    "gg" '(magit-status :which-key "git status")
+    "gb" '(magit-blame  :which-key "git blame"))
+
+  ;; mode specific leader prefix
   (vlko-leader-def 'normal smartparens-mode-map
     "s"  '(:ignore s :which-key "smartparens")
     "ss" '(sp-split-sexp  :which-key "split sexp")
@@ -144,9 +153,6 @@
   ;; Use visual line motions even outside of visual-line-mode buffers
   (evil-global-set-key 'motion "j" 'evil-next-visual-line)
   (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
-
-  ;; buffer search
-  (evil-global-set-key 'normal "/" 'counsel-grep-or-swiper)
 
   (evil-set-initial-state 'messages-buffer-mode 'normal)
   (evil-set-initial-state 'dashboard-mode 'normal))
