@@ -313,6 +313,9 @@
   (setq flycheck-emacs-lisp-load-path 'inherit))
 
 
+(use-package hydra
+  :defer t)
+
 (use-package cider)
 
 (require 'cljstyle-mode)
