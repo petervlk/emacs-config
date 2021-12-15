@@ -21,11 +21,6 @@
 ;; ESC Cancels All
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
-;;Search bindings
-(global-set-key [f5] 'projectile-find-file)
-(global-set-key [f6] 'counsel-projectile-rg)
-(global-set-key [f7] 'lsp-ivy-workspace-symbol)
-
 
 ;;; Package System and Updates
 ;; Initialize package sources
@@ -119,9 +114,19 @@
   :after evil
   :config
 
+  ;(general-evil-setup)
+  ;(general-nmap "SPC" (general-simulate-key "C-c"))
+
   ;; global keys
   (general-def 'normal
     "/" 'counsel-grep-or-swiper)
+
+  (general-def projectile-mode-map
+    "<f5>" 'projectile-find-file
+    "<f6>" 'counsel-projectile-rg)
+
+  (general-def lsp-mode-map
+    "<f7>" 'lsp-ivy-workspace-symbol)
 
   ;; define leader
   (general-create-definer vlko-leader-def
