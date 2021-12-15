@@ -134,11 +134,16 @@
 
   ;; global with leader prefix
   (vlko-leader-def 'normal
+    "b"  '(switch-to-buffer :which-key "switch buffer")
     "g"  '(:ignore g :which-key "git")
     "gg" '(magit-status :which-key "git status")
     "gb" '(magit-blame  :which-key "git blame"))
 
   ;; mode specific leader prefix
+  (vlko-leader-def 'normal projectile-mode-map
+    "b" '(projectile-switch-to-buffer :which-key "switch projectile buffer")
+    "B" '(switch-to-buffer :which-key "switch buffer"))
+
   (vlko-leader-def 'normal smartparens-mode-map
     "s"  '(:ignore s :which-key "smartparens")
     "ss" '(sp-split-sexp  :which-key "split sexp")
