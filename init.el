@@ -340,6 +340,47 @@
   :hook (smartparens-strict-mode . evil-smartparens-mode))
 
 
+;; (defhydra hydra-smartparens ()
+;;   "Smartparens"
+;;   ("q" nil)
+
+;;   ;; Wrapping
+;;   ("(" (lambda (_) (interactive "P") (sp-wrap-with-pair "(")))
+;;   ("{" (lambda (_) (interactive "P") (sp-wrap-with-pair "{")))
+;;   ("'" (lambda (_) (interactive "P") (sp-wrap-with-pair "'")))
+;;   ("\"" (lambda (_) (interactive "P") (sp-wrap-with-pair "\"")))
+
+;;   ("w" (lambda (_) (interactive "P") (sp-wrap-with-pair "(")) "wrap")
+;;   ("W" sp-unwrap-sexp)
+
+;;   ;; Movement
+;;   ("l" sp-next-sexp)
+;;   ("h" sp-backward-sexp)
+;;   ("j" sp-down-sexp)
+;;   ("k" sp-backward-up-sexp)
+
+;;   ("L" sp-forward-symbol)
+;;   ("H" sp-backward-symbol)
+
+;;   ("^" sp-beginning-of-sexp)
+;;   ("$" sp-end-of-sexp)
+
+;;   ("t" sp-transpose-sexp "transpose")
+;;   ("u" undo-tree-undo "undo")
+
+;;   ("y" sp-copy-sexp "copy")
+;;   ("d" sp-kill-sexp "delete")
+
+;;   ("s" sp-forward-slurp-sexp "slurp")
+;;   ("S" sp-backward-slurp-sexp)
+
+;;   ("b" sp-forward-barf-sexp "barf")
+;;   ("B" sp-backward-barf-sexp)
+
+;;   ("v" sp-select-next-thing "select")
+;;   ("V" sp-select-previous-thing))
+
+
 ;; improve emacs help system
 (use-package helpful
   :commands (helpful-callable helpful-variable helpful-command helpful-key)
