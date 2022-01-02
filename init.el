@@ -54,7 +54,7 @@
   (auto-package-update-at-time "09:00"))
 
 ;; no littering
-(setq user-emacs-directory "~/.cache/emacs")
+;; (setq user-emacs-directory "~/.cache/emacs")
 (use-package no-littering)
 (setq auto-save-file-name-transforms
       `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
