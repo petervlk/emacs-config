@@ -110,56 +110,7 @@
   :init (doom-modeline-mode 1))
 
 
-(use-package general
-  :after evil
-  :config
 
-  ;(general-evil-setup)
-  ;(general-nmap "SPC" (general-simulate-key "C-c"))
-
-  ;; global keys
-  (general-def 'normal
-    "/" 'counsel-grep-or-swiper)
-
-  ;; mode specific non-prefixed
-  (general-def smartparens-mode-map
-   "C-<left>"   'sp-backward-sexp
-   "C-<right>"  'sp-next-sexp
-   "C-<up>"     'sp-up-sexp
-   "C-<down>"   'sp-down-sexp)
-
-  (general-def projectile-mode-map
-    "<f5>" 'projectile-find-file
-    "<f6>" 'counsel-projectile-rg)
-
-  (general-def lsp-mode-map
-    "<f7>" 'lsp-ivy-workspace-symbol)
-
-  ;; define leader
-  (general-create-definer vlko-leader-def
-    :prefix "SPC")
-
-  ;; global with leader prefix
-  (vlko-leader-def 'normal
-    "b"  '(switch-to-buffer :which-key "switch buffer")
-    "g"  '(:ignore g :which-key "git")
-    "gg" '(magit-status :which-key "git status")
-    "gb" '(magit-blame  :which-key "git blame"))
-
-  ;; mode specific leader prefix
-  (vlko-leader-def 'normal projectile-mode-map
-    "b" '(projectile-switch-to-buffer :which-key "switch projectile buffer")
-    "B" '(switch-to-buffer :which-key "switch buffer"))
-
-  (vlko-leader-def 'normal smartparens-mode-map
-    "s"  '(:ignore s :which-key "smartparens")
-    "ss" '(sp-split-sexp  :which-key "split sexp")
-    "su" '(sp-splice-sexp :which-key "splice sexp")
-    "sr" '(sp-raise-sexp  :which-key "raise sexp")
-    "sc" '(sp-raise-sexp  :which-key "raise sexp")
-    "s(" '(sp-wrap-round  :which-key "wrap sexp round")
-    "s[" '(sp-wrap-square :which-key "wrap sexp square")
-    "s{" '(sp-wrap-curly  :which-key "wrap sexp curly")))
 
 (use-package evil
   :init
@@ -236,21 +187,6 @@
   ;; Uncomment the following line to have sorting remembered across sessions!
 					;(prescient-persist-mode 1)
   (ivy-prescient-mode 1))
-
-
-(use-package company
-  :after lsp-mode
-  :hook (lsp-mode . company-mode)
-  :bind (:map company-active-map
-         ("TAB" . company-complete-selection)
-         :map lsp-mode-map
-         ("TAB" . company-indent-or-complete-common))
-  :custom
-  (company-minimum-prefix-length 1)
-  (company-idle-delay 0.0))
-
-(use-package company-box
-  :hook (company-mode . company-box-mode))
 
 
 (use-package projectile
@@ -361,6 +297,20 @@
 (use-package lsp-ivy
   :after lsp)
 
+(use-package company
+  :after lsp-mode
+  :hook (lsp-mode . company-mode)
+  :bind (:map company-active-map
+         ("TAB" . company-complete-selection)
+         :map lsp-mode-map
+         ("TAB" . company-indent-or-complete-common))
+  :custom
+  (company-minimum-prefix-length 1)
+  (company-idle-delay 0.0))
+
+(use-package company-box
+  :hook (company-mode . company-box-mode))
+
 
 (use-package smartparens
   :diminish smartparens-mode ;; Do not show in modeline
@@ -437,6 +387,60 @@ HEADER should be just the name of the header, e.g.
                                     (progn
                                       (move-end-of-line 1)
                                       (point)))))
+
+(use-package general
+  :after evil
+  :config
+
+  ;(general-evil-setup)
+  ;(general-nmap "SPC" (general-simulate-key "C-c"))
+
+  ;; global keys
+  (general-def 'normal
+    "/" 'counsel-grep-or-swiper)
+
+  ;; mode specific non-prefixed
+  (general-def smartparens-mode-map
+   "C-<left>"   'sp-backward-sexp
+   "C-<right>"  'sp-next-sexp
+   "C-<up>"     'sp-up-sexp
+   "C-<down>"   'sp-down-sexp)
+
+  (general-def projectile-mode-map
+    "<f5>" 'projectile-find-file
+    "<f6>" 'counsel-projectile-rg)
+
+  (general-def lsp-mode-map
+    "<f7>" 'lsp-ivy-workspace-symbol)
+
+  (general-def 'normal lsp-mode-map
+    "gr" 'lsp-find-references)
+
+  ;; define leader
+  (general-create-definer vlko-leader-def
+    :prefix "SPC")
+
+  ;; global with leader prefix
+  (vlko-leader-def 'normal
+    "b"  '(switch-to-buffer :which-key "switch buffer")
+    "g"  '(:ignore g :which-key "git")
+    "gg" '(magit-status :which-key "git status")
+    "gb" '(magit-blame  :which-key "git blame"))
+
+  ;; mode specific leader prefix
+  (vlko-leader-def 'normal projectile-mode-map
+    "b" '(projectile-switch-to-buffer :which-key "switch projectile buffer")
+    "B" '(switch-to-buffer :which-key "switch buffer"))
+
+  (vlko-leader-def 'normal smartparens-mode-map
+    "s"  '(:ignore s :which-key "smartparens")
+    "ss" '(sp-split-sexp  :which-key "split sexp")
+    "su" '(sp-splice-sexp :which-key "splice sexp")
+    "sr" '(sp-raise-sexp  :which-key "raise sexp")
+    "sc" '(sp-raise-sexp  :which-key "raise sexp")
+    "s(" '(sp-wrap-round  :which-key "wrap sexp round")
+    "s[" '(sp-wrap-square :which-key "wrap sexp square")
+    "s{" '(sp-wrap-curly  :which-key "wrap sexp curly")))
 
 
 ;;; init.el ends here
