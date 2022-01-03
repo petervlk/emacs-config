@@ -466,22 +466,23 @@ HEADER should be just the name of the header, e.g.
     "gr" 'lsp-find-references)
 
   ;; define leader
-  (general-create-definer vlko-leader-def
+  (general-create-definer leader-key-def
     :prefix "SPC")
 
   ;; global with leader prefix
-  (vlko-leader-def 'normal
+  (leader-key-def 'normal
     "b"  '(switch-to-buffer :which-key "switch buffer")
+    "d"  '(dired-jump :which-key "dired jump")
     "g"  '(:ignore g :which-key "git")
     "gg" '(magit-status :which-key "git status")
     "gb" '(magit-blame  :which-key "git blame"))
 
   ;; mode specific leader prefix
-  (vlko-leader-def 'normal projectile-mode-map
+  (leader-key-def 'normal projectile-mode-map
     "b" '(projectile-switch-to-buffer :which-key "switch projectile buffer")
     "B" '(switch-to-buffer :which-key "switch buffer"))
 
-  (vlko-leader-def 'normal smartparens-mode-map
+  (leader-key-def 'normal smartparens-mode-map
     "s"  '(:ignore s :which-key "smartparens")
     "ss" '(sp-split-sexp  :which-key "split sexp")
     "su" '(sp-splice-sexp :which-key "splice sexp")
