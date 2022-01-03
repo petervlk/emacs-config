@@ -190,6 +190,7 @@
   :after counsel
   :custom
   (ivy-prescient-enable-filtering nil)
+  (prescient-sort-length-enable nil)
   :config
   ;; Uncomment the following line to have sorting remembered across sessions!
 					;(prescient-persist-mode 1)
