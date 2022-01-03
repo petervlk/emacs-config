@@ -469,6 +469,10 @@ HEADER should be just the name of the header, e.g.
   (general-create-definer leader-key-def
     :prefix "SPC")
 
+  ;; define local leader
+  (general-create-definer local-leader-key-def
+    :prefix ",")
+
   ;; global with leader prefix
   (leader-key-def 'normal
     "b"  '(switch-to-buffer :which-key "switch buffer")
@@ -490,7 +494,18 @@ HEADER should be just the name of the header, e.g.
     "sc" '(sp-raise-sexp  :which-key "raise sexp")
     "s(" '(sp-wrap-round  :which-key "wrap sexp round")
     "s[" '(sp-wrap-square :which-key "wrap sexp square")
-    "s{" '(sp-wrap-curly  :which-key "wrap sexp curly")))
+    "s{" '(sp-wrap-curly  :which-key "wrap sexp curly"))
+
+  (local-leader-key-def 'normal clojure-mode-map
+    "'" '(cider  :which-key "cider")
+    "i" '(cider-inspect-last-result  :which-key "inspect last result")
+    "e"  '(:ignore e :which-key "eval")
+    "eb" '(cider-eval-buffer :which-key "eval buffer")
+    "ee" '(cider-eval-last-sexp :which-key "eval last form")
+    "er" '(cider-eval-defun-at-point :which-key "eval root/top level form")
+    "s"  '(:ignore s :which-key "sesman")
+    "sb" '(sesman-browser  :which-key "browse")
+    "sq" '(sesman-quit  :which-key "quit")))
 
 
 ;;; init.el ends here
