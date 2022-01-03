@@ -143,6 +143,13 @@
   (which-key-mode)
   (setq which-key-idle-delay 0.3))
 
+;; TODO - move to which-key use-package definition
+;; source: https://github.com/justbur/emacs-which-key/issues/194
+(add-hook
+    'which-key-init-buffer-hook
+    (lambda () (setq-local mode-line-format nil)))
+
+
 (use-package ivy
   :diminish
   :bind (("C-s" . swiper)
