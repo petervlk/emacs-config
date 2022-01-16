@@ -281,6 +281,7 @@
         ;;lsp-completion-enable nil ; uncomment to use cider completion instead of lsp
 	)
   :hook ((clojure-mode       . lsp)
+         (sql-mode           . lsp)
          (lsp-mode           . lsp-enable-which-key-integration))
   :config
   (lsp-enable-which-key-integration t)
