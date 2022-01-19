@@ -267,7 +267,9 @@
 (use-package clojure-mode
   :config
   (setq clojure-align-forms-automatically t
-	clojure-indent-style 'align-arguments))
+	clojure-indent-style 'align-arguments)
+  :hook
+  (clojure-mode . (lambda () (modify-syntax-entry ?- "w"))))
 
 
 (use-package lsp-mode
