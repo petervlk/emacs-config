@@ -350,7 +350,6 @@
   :diminish
   :hook (smartparens-strict-mode . evil-smartparens-mode))
 
-
 ;; (defhydra hydra-smartparens ()
 ;;   "Smartparens"
 ;;   ("q" nil)
@@ -440,6 +439,43 @@ HEADER should be just the name of the header, e.g.
                                       (move-end-of-line 1)
                                       (point)))))
 
+(defhydra hydra-window-management ()
+  "Window management"
+
+  ;; Jump between windows
+  ("w" evil-window-next "move next")
+
+  ;; Move window around
+  ("h" evil-window-move-far-left    "place window left")
+  ("l" evil-window-move-far-right   "place window right")
+  ("j" evil-window-move-very-bottom "place window down")
+  ("k" evil-window-move-very-top    "place window up")
+
+  ;; ("<left>"  evil-window-move-far-left    "place window left")
+  ;; ("<right>" evil-window-move-far-right   "place window right")
+  ;; ("<down>"  evil-window-move-very-bottom "place window down")
+  ;; ("<up>"    evil-window-move-very-top    "place window up")
+
+  ;; Resize window
+
+  ("C-h" shrink-window-horizontally  "shrink window horizontally")
+  ("C-l" enlarge-window-horizontally "enlarge window horizontally")
+  ("C-j" shrink-window               "shrink window")
+  ("C-k" enlarge-window              "jump up")
+
+  ;; ("C-<left>"  shrink-window-horizontally  "shrink window horizontally")
+  ;; ("C-<right>" enlarge-window-horizontally "enlarge window horizontally")
+  ;; ("C-<down>"  shrink-window               "shrink window")
+  ;; ("C-<up>"    enlarge-window              "jump up")
+
+  ;; Kill windows
+  ("q" evil-quit            "kill window"        :color blue)
+  ("o" delete-other-windows "kill other wondows" :color blue)
+
+  ;; Open windows
+  ("f" projectile-find-file-other-window "split and find project file" :color blue)
+  ("F" find-file-other-window            "split and find file"         :color blue))
+
 (use-package general
   :after evil
   :config
@@ -482,7 +518,8 @@ HEADER should be just the name of the header, e.g.
     "d"  '(dired-jump :which-key "dired jump")
     "g"  '(:ignore g :which-key "git")
     "gg" '(magit-status :which-key "git status")
-    "gb" '(magit-blame  :which-key "git blame"))
+    "gb" '(magit-blame  :which-key "git blame")
+    "w"  '(hydra-window-management/body :which-key "window management"))
 
   ;; mode specific leader prefix
   (leader-key-def 'normal projectile-mode-map
