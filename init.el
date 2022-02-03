@@ -489,7 +489,7 @@ HEADER should be just the name of the header, e.g.
 
   ;; mode specific non-prefixed
   (general-def smartparens-mode-map
-   "C-<left>"   'sp-backward-sexp
+   "C-<left>"   'sp-previous-sexp
    "C-<right>"  'sp-next-sexp
    "C-<up>"     'sp-up-sexp
    "C-<down>"   'sp-down-sexp)
