@@ -7,10 +7,10 @@
 
 ;;; General settings
 ;; Set load path
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
+(add-to-list 'load-path (expand-file-name "~/.config/emacs/lisp"))
 
 ;; Any Customize-based settings should live in custom.el, not here.
-(setq custom-file (expand-file-name "~/.emacs.d/etc/emacs-custom.el")) ;; Without this emacs will dump generated custom settings in this file. No bueno.
+(setq custom-file (expand-file-name "~/.config/emacs/etc/emacs-custom.el")) ;; Without this emacs will dump generated custom settings in this file. No bueno.
 (load custom-file 'noerror)
 
 ;; Make gc pauses faster by decreasing the threshold.
