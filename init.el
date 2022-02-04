@@ -149,6 +149,8 @@
     'which-key-init-buffer-hook
     (lambda () (setq-local mode-line-format nil)))
 
+;; make grep buffers editable
+(use-package wgrep)
 
 (use-package ivy
   :diminish
