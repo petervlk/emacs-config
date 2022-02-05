@@ -110,8 +110,6 @@
   :init (doom-modeline-mode 1))
 
 
-
-
 (use-package evil
   :init
   (setq evil-want-integration t)
@@ -416,9 +414,6 @@
 (use-package json-mode)
 
 ;;; restclient
-(use-package restclient
-  :mode (("\\.http\\'" . restclient-mode)))
-
 (use-package restclient
   :defer t
   :mode (("\\.http\\'" . restclient-mode))
