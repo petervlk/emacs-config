@@ -109,6 +109,7 @@
 (use-package doom-modeline
   :init (doom-modeline-mode 1))
 
+(use-package undo-fu)
 
 (use-package evil
   :init
@@ -116,6 +117,7 @@
   (setq evil-want-keybinding nil)
   (setq evil-want-C-u-scroll t)
   (setq evil-want-C-i-jump t)
+  (setq evil-undo-system 'undo-fu)
   :config
   (evil-mode 1)
   (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
@@ -483,6 +485,8 @@ HEADER should be just the name of the header, e.g.
   ;; global keys
   (general-def 'normal
     "/" 'counsel-grep-or-swiper)
+    "u" 'undo-fu-only-undo
+    "C-r" 'undo-fu-only-redo)
 
   ;; mode specific non-prefixed
   (general-def smartparens-mode-map
