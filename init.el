@@ -484,7 +484,6 @@ HEADER should be just the name of the header, e.g.
 
   ;; global keys
   (general-def 'normal
-    "/" 'counsel-grep-or-swiper)
     "u" 'undo-fu-only-undo
     "C-r" 'undo-fu-only-redo)
 
@@ -515,6 +514,7 @@ HEADER should be just the name of the header, e.g.
 
   ;; global with leader prefix
   (leader-key-def 'normal
+    "/"  '(counsel-grep-or-swiper :which-key "swiper")
     "b"  '(switch-to-buffer :which-key "switch buffer")
     "d"  '(dired-jump :which-key "dired jump")
     "g"  '(:ignore g :which-key "git")
