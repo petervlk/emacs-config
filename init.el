@@ -520,6 +520,7 @@ HEADER should be just the name of the header, e.g.
     "g"  '(:ignore g :which-key "git")
     "gg" '(magit-status :which-key "git status")
     "gb" '(magit-blame  :which-key "git blame")
+    "p" '(:keymap projectile-command-map :which-key "projectile")
     "w"  '(hydra-window-management/body :which-key "window management"))
 
   ;; mode specific leader prefix
