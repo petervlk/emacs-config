@@ -546,8 +546,9 @@ HEADER should be just the name of the header, e.g.
     "ee" '(cider-eval-last-sexp :which-key "eval last form")
     "er" '(cider-eval-defun-at-point :which-key "eval root/top level form")
     "s"  '(:ignore s :which-key "sesman")
-    "sb" '(sesman-browser  :which-key "browse")
-    "sq" '(sesman-quit  :which-key "quit")))
+    "ss" '(sesman-browser  :which-key "browse")
+    "sq" '(sesman-quit  :which-key "quit"))
+  )
 
 
 ;;; init.el ends here
