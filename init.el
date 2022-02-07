@@ -329,13 +329,6 @@
   :diminish smartparens-mode ;; Do not show in modeline
   :init
   (require 'smartparens-config)
-  :bind (:map smartparens-mode-map
-	      ;("C-c f s"   . sp-forward-slurp-sexp)
-	      ;("C-c b s"   . sp-backward-slurp-sexp)
-	      ;("C-c f b"   . sp-forward-barf-sexp)
-	      ;("C-c b b"   . sp-backward-barf-sexp)
-              ;("C-c b k"   . iw-backward-kill-sexp)
-              ("M-)"       . sp-forward-slurp-sexp))
   :custom
   (show-smartparens-global-mode t)
   (sp-navigate-interactive-always-progress-point t)
@@ -530,13 +523,15 @@ HEADER should be just the name of the header, e.g.
 
   (leader-key-def 'normal smartparens-mode-map
     "s"  '(:ignore s :which-key "smartparens")
-    "ss" '(sp-split-sexp  :which-key "split sexp")
-    "su" '(sp-splice-sexp :which-key "splice sexp")
-    "sr" '(sp-raise-sexp  :which-key "raise sexp")
-    "sc" '(sp-raise-sexp  :which-key "raise sexp")
-    "s(" '(sp-wrap-round  :which-key "wrap sexp round")
-    "s[" '(sp-wrap-square :which-key "wrap sexp square")
-    "s{" '(sp-wrap-curly  :which-key "wrap sexp curly"))
+    "ss" '(sp-split-sexp         :which-key "split sexp")
+    "su" '(sp-splice-sexp        :which-key "splice sexp")
+    "sr" '(sp-raise-sexp         :which-key "raise sexp")
+    "sc" '(sp-raise-sexp         :which-key "raise sexp")
+    "s(" '(sp-wrap-round         :which-key "wrap sexp round")
+    "s[" '(sp-wrap-square        :which-key "wrap sexp square")
+    "s{" '(sp-wrap-curly         :which-key "wrap sexp curly")
+    "s<" '(sp-forward-slurp-sexp :which-key "slurp")
+    "s>" '(sp-forward-barf-sexp  :which-key "barf"))
 
   (local-leader-key-def 'normal clojure-mode-map
     "'" '(cider  :which-key "cider")
