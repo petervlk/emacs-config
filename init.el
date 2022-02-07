@@ -443,22 +443,11 @@ HEADER should be just the name of the header, e.g.
   ("j" evil-window-move-very-bottom "place window down")
   ("k" evil-window-move-very-top    "place window up")
 
-  ;; ("<left>"  evil-window-move-far-left    "place window left")
-  ;; ("<right>" evil-window-move-far-right   "place window right")
-  ;; ("<down>"  evil-window-move-very-bottom "place window down")
-  ;; ("<up>"    evil-window-move-very-top    "place window up")
-
   ;; Resize window
-
   ("C-h" shrink-window-horizontally  "shrink window horizontally")
   ("C-l" enlarge-window-horizontally "enlarge window horizontally")
   ("C-j" shrink-window               "shrink window")
   ("C-k" enlarge-window              "jump up")
-
-  ;; ("C-<left>"  shrink-window-horizontally  "shrink window horizontally")
-  ;; ("C-<right>" enlarge-window-horizontally "enlarge window horizontally")
-  ;; ("C-<down>"  shrink-window               "shrink window")
-  ;; ("C-<up>"    enlarge-window              "jump up")
 
   ;; Kill windows
   ("q" evil-quit            "kill window"        :color blue)
