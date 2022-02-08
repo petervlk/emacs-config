@@ -480,8 +480,6 @@ HEADER should be just the name of the header, e.g.
     "<f5>" 'projectile-find-file
     "<f6>" 'counsel-projectile-rg)
 
-  (general-def lsp-mode-map
-    "<f7>" 'lsp-ivy-workspace-symbol)
 
   (general-def 'normal lsp-mode-map
     "gr" 'lsp-find-references)
