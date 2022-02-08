@@ -498,6 +498,7 @@ HEADER should be just the name of the header, e.g.
   (leader-key-def 'normal
     "/"  '(counsel-grep-or-swiper :which-key "swiper")
     "b"  '(switch-to-buffer :which-key "switch buffer")
+    "B"  '(ibuffer :which-key "ibuffer")
     "d"  '(dired-jump :which-key "dired jump")
     "g"  '(:ignore g :which-key "git")
     "gg" '(magit-status :which-key "git status")
@@ -507,8 +508,7 @@ HEADER should be just the name of the header, e.g.
 
   ;; mode specific leader prefix
   (leader-key-def 'normal projectile-mode-map
-    "b" '(projectile-switch-to-buffer :which-key "switch projectile buffer")
-    "B" '(switch-to-buffer :which-key "switch buffer"))
+    "b" '(projectile-switch-to-buffer :which-key "switch projectile buffer"))
 
   (leader-key-def 'normal smartparens-mode-map
     "s"  '(:ignore s :which-key "smartparens")
