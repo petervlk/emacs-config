@@ -298,13 +298,8 @@
 
 
 (use-package lsp-ui
-  :hook (lsp-mode . lsp-ui-mode)
   :custom
-  (lsp-ui-doc-position 'bottom)
-  ;; (lsp-ui-doc-delay 2)
-  ;; (lsp-ui-doc-show-with-mouse t)
-  ;; (lsp-ui-doc-enable nil)
-  )
+  (lsp-ui-doc-enable nil))
 
 
 (use-package lsp-treemacs
