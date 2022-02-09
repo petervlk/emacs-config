@@ -262,7 +262,9 @@
 (use-package hydra
   :defer t)
 
-(use-package cider)
+(use-package cider
+  :custom
+  (cider-eldoc-display-for-symbol-at-point nil))
 
 (require 'cljstyle-mode)
 
@@ -278,7 +280,7 @@
   :init
   (setq lsp-keymap-prefix "C-c l"
         read-process-output-max (* 1024 1024)
-        lsp-eldoc-enable-hover nil
+        lsp-eldoc-enable-hover t
         lsp-signature-auto-activate nil
 	lsp-headerline-breadcrumb-enable nil
         ;;lsp-enable-indentation nil ; uncomment to use cider indentation instead of lsp
