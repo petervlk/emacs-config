@@ -483,7 +483,8 @@ HEADER should be just the name of the header, e.g.
 
 
   (general-def 'normal lsp-mode-map
-    "gr" 'lsp-find-references)
+    "gr" 'lsp-find-references
+    "M-RET" 'lsp-execute-code-action)
 
   ;; define leader
   (general-create-definer leader-key-def
