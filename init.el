@@ -14,7 +14,8 @@
 (load custom-file 'noerror)
 
 ;; Make gc pauses faster by decreasing the threshold.
-(setq gc-cons-threshold (* 2 1000 1000))
+(setq gc-cons-threshold (* 100 1024 1024)
+      read-process-output-max (* 1024 1024))
 
 
 ;;; Keybinding conf
@@ -279,7 +280,6 @@
 (use-package lsp-mode
   :init
   (setq lsp-keymap-prefix "C-c l"
-        read-process-output-max (* 1024 1024)
         lsp-eldoc-enable-hover t
         lsp-signature-auto-activate nil
 	lsp-headerline-breadcrumb-enable nil
