@@ -121,6 +121,7 @@
 
   ;; global keys
   (general-def 'normal
+    "gr" 'xref-find-references
     "u" 'undo-fu-only-undo
     "C-r" 'undo-fu-only-redo)
 
@@ -137,7 +138,6 @@
 
 
   (general-def 'normal lsp-mode-map
-    "gr" 'lsp-find-references
     "M-RET" 'lsp-execute-code-action)
 
   ;; define leader
