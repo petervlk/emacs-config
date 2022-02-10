@@ -114,7 +114,7 @@
 
   ;; global keys
   (general-def 'normal
-    "<ESC>" 'keyboard-escape-quit
+    "<escape>" 'keyboard-escape-quit
     "gr" 'xref-find-references
     "u" 'undo-fu-only-undo
     "C-r" 'undo-fu-only-redo)
