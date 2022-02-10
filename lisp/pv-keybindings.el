@@ -114,7 +114,6 @@
 
   ;; global keys
   (general-def 'normal
-    "gr" 'xref-find-references
     "u" 'undo-fu-only-undo
     "C-r" 'undo-fu-only-redo)
 
@@ -131,7 +130,14 @@
 
 
   (general-def 'normal lsp-mode-map
+    "gd"    'xref-find-definitions
+    "gr"    'xref-find-references
     "M-RET" 'lsp-execute-code-action)
+
+  ;; remap evil-collection key def
+  (general-def '(normal visual) cider-mode-map
+    [remap cider-find-var] 'xref-find-definitions
+    "gr"                   'xref-find-references)
 
   ;; define leader
   (general-create-definer leader-key-def

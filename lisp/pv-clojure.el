@@ -6,6 +6,7 @@
 
 (use-package cider
   :custom
+  (cider-use-xref nil)
   (cider-eldoc-display-for-symbol-at-point nil))
 
 (require 'cljstyle-mode)
