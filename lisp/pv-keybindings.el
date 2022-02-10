@@ -116,9 +116,6 @@
   :after evil
   :config
 
-  ;(general-evil-setup)
-  ;(general-nmap "SPC" (general-simulate-key "C-c"))
-
   ;; global keys
   (general-def 'normal
     "gr" 'xref-find-references
