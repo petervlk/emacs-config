@@ -1,7 +1,7 @@
 ;;; pv-lsp.el --- Summary
 
 ;;; Commentary:
-;;; Setup rainbow-delimiters
+;;; Setup language server protocol
 ;;; Code:
 
 (use-package lsp-mode
@@ -26,14 +26,16 @@
   :commands (lsp lsp-deferred))
 
 (use-package lsp-ui
-  :custom
-  (lsp-ui-doc-enable nil))
+  :commands lsp-ui-mode
+  :custom (lsp-ui-doc-enable nil))
 
 (use-package lsp-treemacs
-  :after lsp)
+  :after lsp
+  :commands lsp-treemacs-errors-list)
 
 (use-package lsp-ivy
-  :after lsp)
+  :after lsp
+  :commands lsp-ivy-workspace-symbol)
 
 (provide 'pv-lsp)
 
