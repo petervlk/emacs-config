@@ -121,10 +121,10 @@
 
   ;; mode specific non-prefixed
   (general-def smartparens-mode-map
-   "C-<left>"   'sp-previous-sexp
-   "C-<right>"  'sp-next-sexp
-   "C-<up>"     'sp-up-sexp
-   "C-<down>"   'sp-down-sexp)
+    "C-<left>"   'sp-previous-sexp
+    "C-<right>"  'sp-next-sexp
+    "C-<up>"     'sp-up-sexp
+    "C-<down>"   'sp-down-sexp)
 
   (general-def projectile-mode-map
     "<f5>" 'projectile-find-file
