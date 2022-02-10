@@ -63,6 +63,10 @@
 (use-package company-box
   :hook (company-mode . company-box-mode))
 
+(use-package yasnippet
+  :config
+  (yas-global-mode 1))
+
 (provide 'pv-completion)
 
 ;;; pv-completion.el ends here
