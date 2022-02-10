@@ -66,6 +66,8 @@
   ("F" find-file-other-window            "split and find file"         :color blue))
 
 
+;;; TODO - uncomment and set keybinding
+;;
 ;; (defhydra hydra-smartparens ()
 ;;   "Smartparens"
 ;;   ("q" nil)
