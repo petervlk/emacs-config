@@ -53,18 +53,11 @@
 (require 'pv-helpful)
 (require 'pv-parens)
 (require 'pv-flycheck)
+(require 'pv-aggresive-indent)
 (require 'pv-clojure)
 (require 'pv-lsp)
 (require 'pv-json)
 (require 'pv-restclient)
 (require 'pv-keybindings)
-
-;; TODO
-
-;;;; Code formatting section
-;; (use-package aggressive-indent
-;;   :config
-;;   (global-aggressive-indent-mode 1)
-;;   (add-to-list 'aggressive-indent-excluded-modes 'cider-repl-mode))
 
 ;;; init.el ends here
