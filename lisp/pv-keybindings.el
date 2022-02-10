@@ -106,18 +106,13 @@
 ;;   ("v" sp-select-next-thing "select")
 ;;   ("V" sp-select-previous-thing))
 
-
-;;TODO - rework using general.el ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; ESC Cancels All                                         ;;;
-(global-set-key (kbd "<escape>") 'keyboard-escape-quit)    ;;;
-
-
 (use-package general
   :after evil
   :config
 
   ;; global keys
   (general-def 'normal
+    "<ESC>" 'keyboard-escape-quit
     "gr" 'xref-find-references
     "u" 'undo-fu-only-undo
     "C-r" 'undo-fu-only-redo)
