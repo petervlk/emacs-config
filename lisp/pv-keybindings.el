@@ -139,6 +139,10 @@
     [remap cider-find-var] 'xref-find-definitions
     "gr"                   'xref-find-references)
 
+  (evil-collection-define-key 'normal 'dired-mode-map
+    "h" 'dired-single-up-directory
+    "l" 'dired-single-buffer)
+
   ;; define leader
   (general-create-definer leader-key-def
     :prefix "SPC")
