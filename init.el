@@ -54,6 +54,7 @@
 (require 'pv-parens)
 (require 'pv-flycheck)
 (require 'pv-aggresive-indent)
+(require 'pv-elisp)
 (require 'pv-clojure)
 (require 'pv-lsp)
 (require 'pv-json)
