@@ -9,6 +9,9 @@
 (menu-bar-mode -1)          ; Disable the menu bar
 (set-fringe-mode 10)        ; Give some breathing room
 
+(setq inhibit-startup-screen t ; Disable welcome screen
+      visible-bell t)          ; visible bell insead of beeping
+
 ;; Fullscreen by default, as early as possible. This tiny window is not enough
 (set-frame-parameter (selected-frame) 'fullscreen 'maximized)
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
@@ -22,12 +25,9 @@
                 shell-mode-hook
                 treemacs-mode-hook
                 eshell-mode-hook
-		cider-repl-mode-hook
-		))
+		cider-repl-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
-;; visible bell insead of beeping
-(setq visible-bell t)
 
 (provide 'pv-ui-setup)
 
