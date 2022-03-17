@@ -44,6 +44,7 @@
 (require 'pv-no-littering)
 (require 'pv-exec-path-from-shell)
 (require 'pv-undo)
+(require 'pv-saveplace)
 (require 'pv-recentf)
 (require 'pv-which-key)
 (require 'pv-completion)
