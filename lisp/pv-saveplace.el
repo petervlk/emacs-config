@@ -5,7 +5,7 @@
 ;;; Code:
 
 (use-package saveplace
-  :config (save-place-file 1))
+  :config (save-place-mode 1))
 
 (provide 'pv-saveplace)
 
