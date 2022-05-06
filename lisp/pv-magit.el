@@ -14,6 +14,8 @@
 (use-package magit-delta
   :hook (magit-mode . magit-delta-mode))
 
+(use-package git-timemachine)
+
 (provide 'pv-magit)
 
 ;;; pv-magit.el ends here
