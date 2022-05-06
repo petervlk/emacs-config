@@ -115,7 +115,10 @@
   ;; global keys
   (general-def 'normal
     "u" 'undo-fu-only-undo
-    "C-r" 'undo-fu-only-redo)
+    "C-r" 'undo-fu-only-redo
+    ;; unimpaired style binding
+    "]w" 'next-window-any-frame
+    "[w" 'previous-window-any-frame)
 
   ;; mode specific non-prefixed
   (general-def smartparens-mode-map
