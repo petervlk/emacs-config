@@ -164,6 +164,8 @@
     "gg" '(magit-status :which-key "git status")
     "gb" '(magit-blame  :which-key "git blame")
     "p" '(:keymap projectile-command-map :package projectile :which-key "projectile")
+    "t" '(treemacs :which-key "treemacs toggle")
+    "T" '(treemacs-display-current-project-exclusively :which-key "treemacs current project")
     "w"  '(hydra-window-management/body :which-key "window management"))
 
   ;; mode specific leader prefix
