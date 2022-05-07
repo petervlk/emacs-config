@@ -192,7 +192,7 @@
     "i" '(cider-inspect-last-result  :which-key "inspect last result")
     "e"  '(:ignore e :which-key "eval")
     "eb" '(cider-eval-buffer :which-key "eval buffer")
-    "ee" '(cider-eval-list-at-point :which-key "eval last form")
+    "ee" '(cider-eval-list-at-point :which-key "eval list at point")
     "el" '(cider-eval-last-sexp :which-key "eval last form")
     "er" '(cider-eval-defun-at-point :which-key "eval root/top level form")
     "s"  '(:ignore s :which-key "sesman")
