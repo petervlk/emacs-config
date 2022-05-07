@@ -180,7 +180,7 @@
     "ss" '(sp-split-sexp         :which-key "split sexp")
     "su" '(sp-splice-sexp        :which-key "splice sexp")
     "sr" '(sp-raise-sexp         :which-key "raise sexp")
-    "sc" '(sp-raise-sexp         :which-key "raise sexp")
+    "sc" '(sp-copy-sexp          :which-key "copy sexp")
     "s(" '(sp-wrap-round         :which-key "wrap sexp round")
     "s[" '(sp-wrap-square        :which-key "wrap sexp square")
     "s{" '(sp-wrap-curly         :which-key "wrap sexp curly")
