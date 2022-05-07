@@ -173,6 +173,7 @@
     "b" '(projectile-switch-to-buffer :which-key "switch projectile buffer"))
 
   (leader-key-def 'normal lsp-mode-map
+    "l" '(:keymap lsp-command-map :which-key "lsp")
     "k" '(lsp-ui-doc-glance :which-key "clojuredoc glance"))
 
   (leader-key-def 'normal smartparens-mode-map
