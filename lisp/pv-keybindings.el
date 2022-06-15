@@ -39,33 +39,6 @@
 (use-package hydra
   :defer t)
 
-(defhydra hydra-window-management ()
-  "Window management"
-
-  ;; Jump between windows
-  ("w" evil-window-next "move next")
-
-  ;; Move window around
-  ("h" evil-window-move-far-left    "place window left")
-  ("l" evil-window-move-far-right   "place window right")
-  ("j" evil-window-move-very-bottom "place window down")
-  ("k" evil-window-move-very-top    "place window up")
-
-  ;; Resize window
-  ("C-h" shrink-window-horizontally  "shrink window horizontally")
-  ("C-l" enlarge-window-horizontally "enlarge window horizontally")
-  ("C-j" shrink-window               "shrink window")
-  ("C-k" enlarge-window              "jump up")
-
-  ;; Kill windows
-  ("q" evil-quit            "kill window"        :color blue)
-  ("o" delete-other-windows "kill other wondows" :color blue)
-
-  ;; Open windows
-  ("f" projectile-find-file-other-window "split and find project file" :color blue)
-  ("F" find-file-other-window            "split and find file"         :color blue))
-
-
 ;;; TODO - uncomment and set keybinding
 ;;
 ;; (defhydra hydra-smartparens ()
