@@ -31,9 +31,7 @@
   (lsp-ui-doc-enable t)
   (lsp-ui-doc-show-with-mouse nil)
   (lsp-ui-doc-show-with-cursor nil)
-  (lsp-ui-doc-childframe nil)
-  (lsp-ui-doc-max-height 50)
-  (lsp-ui-doc-max-width 150))
+  (lsp-ui-doc-childframe nil))
 
 (use-package lsp-treemacs
   :after lsp

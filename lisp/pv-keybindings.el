@@ -147,7 +147,7 @@
 
   (leader-key-def 'normal lsp-mode-map
     "l" '(:keymap lsp-command-map :which-key "lsp")
-    "k" '(lsp-ui-doc-glance :which-key "clojuredoc glance"))
+    "k" '(lsp-describe-thing-at-point :which-key "describe thing at point"))
 
   (leader-key-def 'normal smartparens-mode-map
     "s"  '(:ignore s :which-key "smartparens")
